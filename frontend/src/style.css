@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');
+
+@import 'tailwindcss';
+@import '@fontsource-variable/geist';
+@import 'tw-animate-css';
+@import 'shadcn-vue/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Geist Variable', sans-serif;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-muted-foreground: var(--sidebar-muted-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-eod-page: var(--eod-page);
+  --color-eod-surface: var(--eod-surface);
+  --color-eod-border: var(--eod-border);
+  --color-eod-foreground: var(--eod-foreground);
+  --color-eod-muted-foreground: var(--eod-muted-foreground);
+  --color-eod-primary: var(--eod-primary);
+  --color-eod-primary-foreground: var(--eod-primary-foreground);
+  --color-eod-primary-soft: var(--eod-primary-soft);
+  --color-eod-primary-soft-border: var(--eod-primary-soft-border);
+  --color-eod-input: var(--eod-input);
+  --color-eod-neutral: var(--eod-neutral);
+  --color-eod-neutral-foreground: var(--eod-neutral-foreground);
+  --color-eod-disabled: var(--eod-disabled);
+  --color-eod-status-in-approval: var(--eod-status-in-approval);
+  --color-eod-status-in-approval-foreground: var(--eod-status-in-approval-foreground);
+  --color-eod-status-draft: var(--eod-status-draft);
+  --color-eod-status-draft-foreground: var(--eod-status-draft-foreground);
+  --color-eod-status-rejected: var(--eod-status-rejected);
+  --color-eod-status-rejected-foreground: var(--eod-status-rejected-foreground);
+  --color-eod-status-approved: var(--eod-status-approved);
+  --color-eod-status-approved-foreground: var(--eod-status-approved-foreground);
+  --color-eod-status-completed: var(--eod-status-completed);
+  --color-eod-status-completed-foreground: var(--eod-status-completed-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.488 0.243 264.376); /* brand: blue-700 #1D4ED8 */
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.623 0.214 259.815);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  /* Sidebar – Fluxis EOD Light: hexy przeniesione 1:1 z Figmy (celowo nie oklch). */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #172033;
+  --sidebar-muted-foreground: #657085;
+  --sidebar-primary: #1d4ed8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8f0fe;
+  --sidebar-accent-foreground: #172033;
+  --sidebar-border: #e3e8ef;
+  --sidebar-ring: #1d4ed8;
+  /* Promienie EOD (Figma): 12px – elementy nawigacji, 10px – logo, przyciski ikon. */
+  --eod-radius-md: 12px;
+  --eod-radius-sm: 10px;
+  /* 8px – przyciski paginacji, 16px – panele (np. lista dokumentów). */
+  --eod-radius-xs: 8px;
+  --eod-radius-lg: 16px;
+  /* Kolory EOD Light (Figma, hexy 1:1) – widoki treści, np. lista dokumentów. */
+  --eod-page: #f6f8fb;
+  --eod-surface: #ffffff;
+  --eod-border: #e3e8ef;
+  --eod-foreground: #172033;
+  --eod-muted-foreground: #657085;
+  --eod-primary: #1d4ed8;
+  --eod-primary-foreground: #ffffff;
+  --eod-primary-soft: #e8f0fe;
+  --eod-primary-soft-border: #bfdbfe;
+  --eod-input: #f8fafc;
+  --eod-neutral: #f1f5f9;
+  --eod-neutral-foreground: #475569;
+  --eod-disabled: #cbd5e1;
+  --eod-status-in-approval: #fef3c7;
+  --eod-status-in-approval-foreground: #b45309;
+  --eod-status-draft: #f1f5f9;
+  --eod-status-draft-foreground: #475569;
+  --eod-status-rejected: #fee2e2;
+  --eod-status-rejected-foreground: #b91c1c;
+  --eod-status-approved: #dcfce7;
+  --eod-status-approved-foreground: #15803d;
+  --eod-status-completed: #e0f2fe;
+  --eod-status-completed-foreground: #0369a1;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.546 0.245 262.881); /* brand: blue-600 */
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.707 0.165 254.624);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+  /* Tymczasowo: wariant Dark sidebara poza zakresem – do dopracowania wg Figmy. */
+  --sidebar-muted-foreground: var(--muted-foreground);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    @apply font-sans;
+  }
+}
